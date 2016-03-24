@@ -1,17 +1,22 @@
-require "pry"
+#require "pry"
 
 class DraftBoard
 
-  def initialize(team_name:, team_need_primary:, team_need_secondary:, draft_postion:)
+  def initialize(options)
     @team_name           = options[:team_name]
     @team_need_primary   = options[:team_need_primary]
     @team_need_secondary = options[:team_need_secondary]
     @draft_postion       = options[:draft_postion]
+    @prospect            = options[:nil]
   end
 
+  def prospect
+    @prospect
+  end
+
+
   def team_name
-    @team_name = team_name
-    team_name =  {"San Francisco" => city, "49ers"      => name,
+    @team_name = {"San Francisco" => city, "49ers"      => name,
                   "Dallas"        => city, "Cowboys"    => name,
                   "Seattle"       => city, "Seahawks"   => name,
                   "Arizona"       => city, "Cardinals"  => name,
@@ -20,7 +25,7 @@ class DraftBoard
                   "Minnesota"     => city, "Vikings"    => name,
                   "Green Bay"     => city, "Packers"    => name,
                   "Carolina"      => city, "Panthers"   => name,
-                  "New York"      => city, "Giants"     => name,
+                  "New York(NFC)" => city, "Giants"     => name,
                   "Atlanta"       => city, "Falcons"    => name,
                   "Philadelphia"  => city, "Eagles"     => name,
                   "Washington"    => city, "Redskins"   => name,
@@ -35,7 +40,7 @@ class DraftBoard
                   "Indianapolis"  => city, "Colts"      => name,
                   "Miami"         => city, "Dolphins"   => name,
                   "Houston"       => city, "Texans"     => name,
-                  "New York"      => city, "Jets"       => name,
+                  "New York(AFC)" => city, "Jets"       => name,
                   "Cincinnati"    => city, "Bengals"    => name,
                   "Oakland"       => city, "Raiders"    => name,
                   "Pittsburgh"    => city, "Steelers"   => name,
@@ -43,7 +48,8 @@ class DraftBoard
                   "New England"   => city, "Patriots"   => name,
                   "Cleveland"     => city, "Browns"     => name,
                   "Buffalo"       => city, "Bills"      => name
-                  }
+                }
+              #team_name = team_name.self
   end
 
   # Creating relationship between DraftBoard and Prospect
@@ -68,15 +74,15 @@ class DraftBoard
   # Defining teams primary and secondary needs (positions).
   # The positions are referred to as "need" and are acronyms
 
-  def team_need_primary(need)
-    @team_need_primary = need
-    need = ["SS", "FS", "CB_1", "CB_2", "ROLB", "LOLB", "MLB", "NT", "DT", "RE", "LE",
+  def team_need_primary(team_need_one)
+    @team_need_primary = team_need_one
+    team_need_one = ["SS", "FS", "CB_1", "CB_2", "ROLB", "LOLB", "MLB", "NT", "DT", "RE", "LE",
             "QB", "WR_1", "WR_2", "TE", "RT", "RG", "C", "LG", "LC"]
   end
 
-  def team_need_secondary(need)
-    @team_need_secondary = need
-    need = ["SS", "FS", "CB_1", "CB_2", "ROLB", "LOLB", "MLB", "NT", "DT", "RE", "LE",
+  def team_need_secondary(team_need_two)
+    @team_need_secondary = team_need_two
+    team_need_two = ["SS", "FS", "CB_1", "CB_2", "ROLB", "LOLB", "MLB", "NT", "DT", "RE", "LE",
             "QB", "WR_1", "WR_2", "TE", "RT", "RG", "C", "LG", "LC"]
   end
 
@@ -92,7 +98,7 @@ class DraftBoard
 
 end
 
-binding.pry
+#binding.pry
 
 
 #def license_plate_number(number)
@@ -109,3 +115,8 @@ binding.pry
 #    @place     = params[:place]
 #    @nickname  = params[:nickname]
 #  end
+
+# team_name            #
+# team_need_primary    #
+# team_need_secondary  #
+# draft_postion        #

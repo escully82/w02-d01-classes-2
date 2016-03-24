@@ -1,15 +1,19 @@
-require "pry"
+#require "pry"
 
 class Prospect
   attr_accessor :college_team, :off_field_issues
 
-  def initialize(name:, position:, draft_value:, college_team:, off_field_issues:)
+  def initialize(options)
     @name                  = options[:name]
     @position              = options[:position]
     @draft_value           = options[:draft_value]
     @college_team          = options[:college_team]
     @off_field_issues      = options[:off_field_issues]
-    #@projected_draft_round = options[:projected_draft_round]
+    @draft_board           = options[:nil]
+  end
+
+  def draft_board
+    @draft_board
   end
 
   def name=(name)
@@ -46,7 +50,7 @@ class Prospect
 
 end
 
-binding.pry
+#binding.pry
 
 
 # @credit_card_number = options[:credit_card_number]
